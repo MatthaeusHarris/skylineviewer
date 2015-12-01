@@ -1,0 +1,15 @@
+<script>
+    var mapData = {{{mapData}}};
+    var myMap;
+    var init = function() {
+
+        myMap = L.map('map',mapData);
+        L.tileLayer(mapData.tileUrl, { attribution: mapData.attribution }).addTo(myMap);
+    }
+    console.log("JS loaded");
+    $().ready(init);
+</script>
+
+<h1>{{ title }}</h1>
+
+<div id="map"></div>
