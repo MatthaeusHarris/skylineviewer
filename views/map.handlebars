@@ -1,0 +1,37 @@
+<h1>{{ title }}</h1>
+<div id="skyline-map" class="row"></div>
+
+
+{{#section 'jquery'}}
+    <script>
+        var mapData = {{{mapData}}};
+        var myMap;
+        var mapId = 'skyline-map';
+        var mapMargin = 50;
+        var $map = $('#' + mapId);
+
+        var resize = function() {
+            console.log("Resizing");
+            if ($(window).width()>=980) {
+                $map.css("height", ($(window).height() - mapMargin));
+                $map.css("margin-top", 50);
+            } else {
+                $map.css("height", ($(window).height() - (mapMargin + 12 )));
+                $map.css("margin-top", -21);
+            }
+        };
+
+        var init = function() {
+            resize();
+            myMap = L.map(mapId,mapData);
+            L.tileLayer(mapData.tileUrl, { attribution: mapData.attribution }).addTo(myMap);
+
+            $map.css("height", ($(window).height() - mapMargin));
+            $(window).on('resize', resize);
+        };
+
+
+
+        $().ready(init);
+    </script>
+{{/section}}

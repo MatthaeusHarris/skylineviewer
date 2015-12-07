@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skyline Viewer{{#if title}}: {{title}}{{/if}}</title>
+    <link rel='stylesheet' href="/stylesheets/leaflet.css">
+    <link rel='stylesheet' href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+
+    {{{ _sections.header }}}
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle NAvigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Skyline Viewer</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/user">User</a></li>
+                <li><a href="/maps">Maps</a></li>
+            </ul>
+        </div><!-- /.nav-collapse -->
+    </div>
+</nav>
+{{#if flash}}
+    {{#each flash}}
+        <div class="alert alert-dismissable alert-{{type}}">
+            <button type="button" class="close" data-dismiss="alert" arian-hidden="true">&times;</button>
+            <strong>{{intro}}</strong> {{{message}}}
+        </div>
+    {{/each}}
+{{/if}}
+
+<div class="container-fluid fill">
+    {{{body}}}
+</div>
+
+<script src="/javascripts/jquery-1.11.3.min.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/leaflet.js"></script>
+{{{ _sections.jquery }}}
+</body>
+</html>
