@@ -1,0 +1,8 @@
+clear-map
+use-ruleset alias="googlemaps"
+apply-ruleset
+load-source "../../testdata/Springdale.osm"
+set-geo-bounds 35.6522627191331,34.3588539151588,36.0497922483957,34.523800768987
+zoom-bounds
+generate-tiles tilesdir="../../public/tiles/matt/springdale" minzoom=12 maxzoom=16
+exit
