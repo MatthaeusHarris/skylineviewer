@@ -22,7 +22,7 @@ var handlebars = require('express-handlebars').create({
 });
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var user = require('./routes/user');
 var map = require('./routes/map');
 
 var app = express();
@@ -64,8 +64,8 @@ auth.initialize(app);
 auth.registerRoutes(app);
 
 app.use('/', routes);
-app.use('/users', users);
-app.use('/map', map);
+app.use(user);
+app.use(map);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
